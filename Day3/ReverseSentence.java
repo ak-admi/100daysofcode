@@ -1,26 +1,36 @@
 package Day3;
 
+import java.util.Scanner;
+
 public class ReverseSentence {
-    public static String Reverse(String S) {
-         S= S.trim();
-         char [] str=S.toCharArray();
-        String result = "";
-        int index = str.length-1;
-        char chr;
-        boolean isStart = true;
-        while (index >= 0) {
-            chr = str[index];
-            if(isStart && chr!=" "){
-                isStart=false;
-            }
-            
-        }else{
-            chr=chr.toLowerCase();
+    public static String str;
+    public static Scanner sc = new Scanner(System.in);
+
+    public static String ReversedByletters(String str) {
+        char[] c = str.toCharArray();
+        String out = "";
+        for (int i = c.length - 1; i >= 0; i--) {
+            out += c[i];
         }
+        return out;
+
+    }
+
+    public static String ReversedBywords(String str) {
+        String[] s = str.split(" ");
+        String out = "";
+        for (int i = s.length - 1; i >= 0; i--) {
+            out += s[i] + " ";
+        }
+        return out;
 
     }
 
     public static void main(String[] args) {
+        System.out.println("Enter the sentence");
+        str = sc.nextLine();
+        System.out.println(ReversedByletters(str));
+        System.out.println(ReversedBywords(str));
 
     }
 
